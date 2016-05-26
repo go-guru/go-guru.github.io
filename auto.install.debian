@@ -1,0 +1,240 @@
+#! /bin/bash
+# By go-guru (go-guru.github.io/auto.install.debian)
+
+# WARNING: Risk a data erase
+ 
+# Написан: 2008-07-30
+# Последняя правка:	2016-05-26
+
+### Пользовательские переменные - править под свои нужды.
+repsource="http://192.168.1.217:777/lenny"		## Источник
+suite="lenny"						## Ветка
+bootdev="/dev/sda1"					## /boot-раздел (относительно хост-системы)
+ 
+## Параметры системы назначения
+hstname="newhost" # Имя хоста
+rootdev="/dev/sda3" # / - раздел (относительно устанавливаемой системы)
+mylocale="ru_RU.UTF-8" # локаль
+rootpwd='myrootpasswd'
+normalusername='rain'
+normaluserpass='temppwd'
+ 
+# Устанавливаемые пакеты
+syspackages="linux-image-2.6-686 grub"
+mainpackages="vim console-cyrillic mc screen ssh readahead less"
+#desktop="x-window-system-core kdebase kde-i18n-ru"
+office="openoffice.org"
+#internet="kmail iceweasel psi iceweasel-l10n-ru"
+#graphics="kuickshow ksnapshot kolourpaint"
+#multimedia="amarok k3b k3b-i18n kaudiocreator smplayer"
+#sysutils="synaptic krusader"
+filesystemtools="reiserfsprogs"
+archiv="bzip2 gzip p7zip-full unzip"
+#misc="kwalletmanager kaddressbook"
+#themes="openoffice.org-kde chameleon-cursor-theme"
+#usability="kde-guidance knetworkconf"
+ 
+# Пакеты, которые необходимо удалить после установки
+pkgblacklist="portmap fam"
+ 
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+ 
+# Скриптовые переменные
+targetdir="${1}"
+umask 022
+mainpackages="${mainpackages} ${desktop} ${office} ${internet} ${usability} ${themes}"
+mainpackages="${mainpackages} ${graphics} ${sysutils} ${multimedia} ${archiv} ${misc} ${filesystemtools}"
+ 
+# Функции
+error() {
+  echo -e "\e[31m${1}\e[0m"
+  exit 1
+}
+ 
+# Проверка корректности окружения
+[ ${UID} == "0" ] 		|| error "You are not root"
+[ $(which debootstrap) ]	|| error "Can't find debootstrap"
+[ $(which chroot) ]		|| error "Can't find chroot"
+ 
+# Проверка корректности указания репозитория
+if [[ "${repsource%%:*}" != "http" && "${repsource%%:*}" != "ftp" && "${repsource%%:*}" != "file" ]]
+	then
+	error "Unknown repository type"
+fi
+ 
+# Проверка доступности каталога назначения
+if [ -z "${1}" ]
+	then
+	if [ -w ${PWD} ]
+		then
+		targetdir="new_system_root_${RANDOM}"
+		mkdir -p ${targetdir}
+	else
+		error "Can't write to ${PWD}"
+	fi
+else
+	if [ ! -w ${targetdir} ]
+		then
+		error "Can't write to ${targetdir}"
+	fi
+fi
+ 
+# Монтирование корневого раздела
+mount ${rootdev} ${targetdir}
+ 
+# Установка базовой системы
+debootstrap ${suite} ${targetdir} ${repsource} || error "Installation failed"
+echo -e "\e[35mBase system installed successfully\e[0m"
+ 
+# Подключение репозитория внутри новой системы
+if [ "${repsource%%:*}" == "file" ]
+	then
+	echo -e "\e[35mMounting repository\e[0m"
+	# Подключение репозитория
+	mkdir -p ${targetdir}/mnt/repository/
+	mount -o bind,ro ${repsource#*:} ${targetdir}/mnt/repository/
+	# Путь к репозиторию
+	echo -e "deb file:/mnt/repository/ ${suite} main contrib" > ${targetdir}/etc/apt/sources.list
+else
+	echo -e "deb ${repsource} ${suite} main contrib" > ${targetdir}/etc/apt/sources.list
+	cp /etc/resolv.conf ${targetdir}/etc/resolv.conf
+fi
+ 
+# Подключение boot-раздела
+if [ ! -z "${bootdev}" ]
+	then
+	if [ "${bootdev}" != "${rootdev}" ]
+		then
+		mount ${bootdev} ${targetdir}/boot/
+	fi
+fi
+ 
+# Подключение виртуальных фаловых систем
+echo -e "\e[35mMounting virtual filesystems\e[0m"
+mount -t proc none ${targetdir}/proc/
+mount -o bind /dev/ ${targetdir}/dev/
+ 
+# Создание системных файлов
+echo -e "\e[35mCreating system files:\t\e[0m"
+ 
+# Сеть
+echo -ne "\e[36mNetwork...\e[0m"
+echo -e "
+# The loopback network interface
+auto lo
+iface lo inet loopback
+ 
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+" >> ${targetdir}/etc/network/interfaces
+ 
+# Имя хоста
+echo -ne "\e[36mHostname...\e[0m"
+echo -e "${hstname}" > ${targetdir}/etc/hostname
+ 
+# Базовый fstab
+echo -ne "\e[36mfstab...\e[0m"
+echo -e "
+# /etc/fstab: static file system information.
+#
+# <file system>\t<mount point>\t<type>\t<options>\t<dump>\t<pass>
+proc\t\t/proc\t\tproc\tdefaults\t0\t0
+" > ${targetdir}/etc/fstab
+echo -e "${rootdev}\t/\tauto\t\tdefaults\t0\t0\n" >> ${targetdir}/etc/fstab
+ 
+# hosts-файл
+echo -ne "\e[36m/etc/hosts...\e[0m"
+echo -e "127.0.0.1\tlocalhost\n\n\n" > ${targetdir}/etc/hosts
+sed -ne "/The following lines are desirable for IPv6 capable hosts/,/^$/p" /etc/hosts >> ${targetdir}/etc/hosts
+ 
+# Локаль
+echo -ne "\e[36mlocale...\e[0m"
+echo -e "LANG=\"${mylocale}\"" > ${targetdir}/etc/default/locale
+ 
+# rcS-переменные
+echo -ne "\e[36mrcS...\e[0m"
+sed -i -e "s/TMPTIME=0/TMPTIME=1/g" -e "s/UTC=yes/UTC=no/g" -e "s/RAMRUN=no/RAMRUN=yes/g" -e "s/RAMLOCK=no/RAMLOCK=yes/g" ${targetdir}/etc/default/rcS
+ 
+# Установка системных пакетов
+echo -e "\n\e[35mInstalling base packages\e[0m"
+chroot ${targetdir} /usr/bin/apt-get update
+chroot ${targetdir} /usr/bin/apt-get -qy --force-yes install locales 2>/dev/null 
+# Установка локали
+sed -i -e "/${mylocale}/s/^# //g" ${targetdir}/etc/locale.gen
+chroot ${targetdir} /usr/sbin/locale-gen
+# Установка основных пакетов
+chroot ${targetdir} /usr/bin/apt-get -qy --force-yes install ${syspackages}
+chroot ${targetdir} /usr/bin/apt-get clean
+ 
+# Создание пользователя, установка пароля для root.
+echo -e "\n\e[35mCreating users\e[0m"
+echo "root:${rootpwd}:0:0:root:/root:/bin/bash" > ${targetdir}/tmp/usersfile
+awk '
+/^UID_MIN/{print "'$normalusername':'$normaluserpass':"$2":"$2":'$normalusername',,,:/home/'$normalusername':/bin/bash"}
+' ${targetdir}/etc/login.defs >> ${targetdir}/tmp/usersfile
+chroot ${targetdir} /usr/sbin/newusers -c SHA256 /tmp/usersfile
+rm -f ${targetdir}/tmp/usersfile
+ 
+# Установка основных пакетов
+if [ ! -z "${mainpackages}" ]
+	then
+		echo -e "\e[35mInstalling base packages\e[0m"
+		# Обновление списка пакетов
+		chroot ${targetdir} /usr/bin/apt-get update
+		# Уставновка необходимых пакетов
+		chroot ${targetdir} /usr/bin/apt-get install ${mainpackages}
+		echo -e "\e[35mRemoving blacklisted packages\e[0m"
+		# Удаление пакетов, поставленных из-за "странных" зависимостей.
+		chroot ${targetdir} /usr/bin/apt-get remove --purge ${pkgblacklist}
+		chroot ${targetdir} /usr/bin/apt-get autoremove --purge
+		# Удаление загруженных файлов
+		echo -e "\e[35mCleanup\e[0m"
+		chroot ${targetdir} /usr/bin/apt-get clean
+fi
+ 
+# Установка GRUB
+if [ ! -z "${bootdev}" ]
+	then
+	echo -e "\e[35mInstalling GRUB\e[0m"
+ 
+	# Создание текущей карты устройств
+	echo -e "\e[36mCreating device table...\e[0m"
+	grub-mkdevicemap
+ 
+	# Преобразование устройства в GRUB-формат
+	hd="$(echo "${bootdev}" | sed -e "s@/@\\\/@g" | grep -oE '^\\/dev\\/...')"
+	hd="$(awk '/'${hd}'/{print $1}' /boot/grub/device.map)"
+ 
+	# Установка GRUB на целевое устройство
+	echo -e "\e[36mInstalling GRUB on ${hd}...\e[0m"
+	chroot ${targetdir} /usr/sbin/grub-install "${hd}"
+ 
+	# Создание menu.lst, добавление установленного ядра
+	echo -e "\e[36mCreating menu.lst\e[0m"
+	chroot ${targetdir} /usr/sbin/update-grub
+else
+echo -e "\e[36mNote: GRUB is not installed"
+fi
+ 
+# Отключение виртуальных файловых систем
+echo -e "\e[35mUnmounting virtual filesystems\e[0m"
+umount ${targetdir}/proc/
+umount ${targetdir}/dev/
+ 
+# Отмонтирование /boot
+if [ ! -z "${bootdev}" ]
+	then
+	echo -e "\e[35mUnmounting boot device\e[0m"
+	umount "${targetdir}"/boot
+fi
+ 
+# Отключение репозитория
+if [ "${repsource%%:*}" == "file" ]
+	then
+	echo -e "\e[35mUnmounting repository\e[0m"
+	umount ${targetdir}/mnt/repository/
+fi
+ 
+echo -e "\e[35mAll done.\e[0m"
+exit 0
