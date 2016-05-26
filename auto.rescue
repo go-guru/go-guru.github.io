@@ -1,0 +1,7 @@
+#! /bin/bash
+# By go-guru (go-guru.github.io/auto.rescue)
+
+fstab=`mdadm --examine --scan`
+for i in ${fstab}; do
+  echo ${i}
+done
