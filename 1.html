@@ -1,3 +1,1069 @@
-<div class="json-schema"><div class="property"><span class="type">{</span><div class="property"><span class="name">basics</span>: <span class="type">{</span> <span class="description"></span><div class="property"><span class="name">name</span>: <span class="type">string</span>, <span class="description"></span></div><div class="property"><span class="name">label</span>: <span class="type">string</span>, <span class="description">// e.g. Web Developer</span></div><div class="property"><span class="name">picture</span>: <span class="type">string</span>, <span class="description">// URL (as per RFC 3986) to a picture in JPEG or PNG format</span></div><div class="property"><span class="name">email</span>: <span class="type">string</span>, <span class="description">// e.g. thomas@gmail.com</span></div><div class="property"><span class="name">phone</span>: <span class="type">string</span>, <span class="description">// Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923</span></div><div class="property"><span class="name">website</span>: <span class="type">string</span>, <span class="description">// URL (as per RFC 3986) to your website, e.g. personal homepage</span></div><div class="property"><span class="name">summary</span>: <span class="type">string</span>, <span class="description">// Write a short 2-3 sentence biography about yourself</span></div><div class="property"><span class="name">location</span>: <span class="type">{</span> <span class="description"></span><div class="property"><span class="name">address</span>: <span class="type">string</span>, <span class="description">// To add multiple address lines, use 
-. For example, 1234 Glücklichkeit Straße
-Hinterhaus 5. Etage li.</span></div><div class="property"><span class="name">postalCode</span>: <span class="type">string</span>, <span class="description"></span></div><div class="property"><span class="name">city</span>: <span class="type">string</span>, <span class="description"></span></div><div class="property"><span class="name">countryCode</span>: <span class="type">string</span>, <span class="description">// code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN</span></div><div class="property"><span class="name">region</span>: <span class="type">string</span> <span class="description">// The general region where you live. Can be a US state, or a province, for instance.</span></div><span class="type">},</span></div><div class="property"><span class="name">profiles</span>: <span class="type">[{</span> <span class="description">// Specify any number of social networks that you participate in</span><div class="property"><span class="name">network</span>: <span class="type">string</span>, <span class="description">// e.g. Facebook or Twitter</span></div><div class="property"><span class="name">username</span>: <span class="type">string</span>, <span class="description">// e.g. neutralthoughts</span></div><div class="property"><span class="name">url</span>: <span class="type">string</span> <span class="description">// e.g. http://twitter.com/neutralthoughts</span></div><span class="type">}]</span></div><span class="type">},</span></div><div class="property"><span class="name">work</span>: <span class="type">[{</span> <span class="description"></span><div class="property"><span class="name">company</span>: <span class="type">string</span>, <span class="description">// e.g. Facebook</span></div><div class="property"><span class="name">position</span>: <span class="type">string</span>, <span class="description">// e.g. Software Engineer</span></div><div class="property"><span class="name">website</span>: <span class="type">string</span>, <span class="description">// e.g. http://facebook.com</span></div><div class="property"><span class="name">startDate</span>: <span class="type">string</span>, <span class="description">// resume.json uses the ISO 8601 date standard e.g. 2014-06-29</span></div><div class="property"><span class="name">endDate</span>: <span class="type">string</span>, <span class="description">// e.g. 2012-06-29</span></div><div class="property"><span class="name">summary</span>: <span class="type">string</span>, <span class="description">// Give an overview of your responsibilities at the company</span></div><div class="property"><span class="name">highlights</span>: <span class="type">[</span> <span class="description">// Specify multiple accomplishments</span><div class="property"><span class="type">string</span> <span class="description">// e.g. Increased profits by 20% from 2011-2012 through viral advertising</span></div><span class="type">]</span></div><span class="type">}],</span></div><div class="property"><span class="name">volunteer</span>: <span class="type">[{</span> <span class="description"></span><div class="property"><span class="name">organization</span>: <span class="type">string</span>, <span class="description">// e.g. Facebook</span></div><div class="property"><span class="name">position</span>: <span class="type">string</span>, <span class="description">// e.g. Software Engineer</span></div><div class="property"><span class="name">website</span>: <span class="type">string</span>, <span class="description">// e.g. http://facebook.com</span></div><div class="property"><span class="name">startDate</span>: <span class="type">string</span>, <span class="description">// resume.json uses the ISO 8601 date standard e.g. 2014-06-29</span></div><div class="property"><span class="name">endDate</span>: <span class="type">string</span>, <span class="description">// e.g. 2012-06-29</span></div><div class="property"><span class="name">summary</span>: <span class="type">string</span>, <span class="description">// Give an overview of your responsibilities at the company</span></div><div class="property"><span class="name">highlights</span>: <span class="type">[</span> <span class="description">// Specify multiple accomplishments</span><div class="property"><span class="type">string</span> <span class="description">// e.g. Increased profits by 20% from 2011-2012 through viral advertising</span></div><span class="type">]</span></div><span class="type">}],</span></div><div class="property"><span class="name">education</span>: <span class="type">[{</span> <span class="description"></span><div class="property"><span class="name">institution</span>: <span class="type">string</span>, <span class="description">// e.g. Massachusetts Institute of Technology</span></div><div class="property"><span class="name">area</span>: <span class="type">string</span>, <span class="description">// e.g. Arts</span></div><div class="property"><span class="name">studyType</span>: <span class="type">string</span>, <span class="description">// e.g. Bachelor</span></div><div class="property"><span class="name">startDate</span>: <span class="type">string</span>, <span class="description">// e.g. 2014-06-29</span></div><div class="property"><span class="name">endDate</span>: <span class="type">string</span>, <span class="description">// e.g. 2012-06-29</span></div><div class="property"><span class="name">gpa</span>: <span class="type">string</span>, <span class="description">// grade point average, e.g. 3.67/4.0</span></div><div class="property"><span class="name">courses</span>: <span class="type">[</span> <span class="description">// List notable courses/subjects</span><div class="property"><span class="type">string</span> <span class="description">// e.g. H1302 - Introduction to American history</span></div><span class="type">]</span></div><span class="type">}],</span></div><div class="property"><span class="name">awards</span>: <span class="type">[{</span> <span class="description">// Specify any awards you have received throughout your professional career</span><div class="property"><span class="name">title</span>: <span class="type">string</span>, <span class="description">// e.g. One of the 100 greatest minds of the century</span></div><div class="property"><span class="name">date</span>: <span class="type">string</span>, <span class="description">// e.g. 1989-06-12</span></div><div class="property"><span class="name">awarder</span>: <span class="type">string</span>, <span class="description">// e.g. Time Magazine</span></div><div class="property"><span class="name">summary</span>: <span class="type">string</span> <span class="description">// e.g. Received for my work with Quantum Physics</span></div><span class="type">}],</span></div><div class="property"><span class="name">publications</span>: <span class="type">[{</span> <span class="description">// Specify your publications through your career</span><div class="property"><span class="name">name</span>: <span class="type">string</span>, <span class="description">// e.g. The World Wide Web</span></div><div class="property"><span class="name">publisher</span>: <span class="type">string</span>, <span class="description">// e.g. IEEE, Computer Magazine</span></div><div class="property"><span class="name">releaseDate</span>: <span class="type">string</span>, <span class="description">// e.g. 1990-08-01</span></div><div class="property"><span class="name">website</span>: <span class="type">string</span>, <span class="description">// e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html</span></div><div class="property"><span class="name">summary</span>: <span class="type">string</span> <span class="description">// Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.</span></div><span class="type">}],</span></div><div class="property"><span class="name">skills</span>: <span class="type">[{</span> <span class="description">// List out your professional skill-set</span><div class="property"><span class="name">name</span>: <span class="type">string</span>, <span class="description">// e.g. Web Development</span></div><div class="property"><span class="name">level</span>: <span class="type">string</span>, <span class="description">// e.g. Master</span></div><div class="property"><span class="name">keywords</span>: <span class="type">[</span> <span class="description">// List some keywords pertaining to this skill</span><div class="property"><span class="type">string</span> <span class="description">// e.g. HTML</span></div><span class="type">]</span></div><span class="type">}],</span></div><div class="property"><span class="name">languages</span>: <span class="type">[{</span> <span class="description">// List any other languages you speak</span><div class="property"><span class="name">language</span>: <span class="type">string</span>, <span class="description">// e.g. English, Spanish</span></div><div class="property"><span class="name">fluency</span>: <span class="type">string</span> <span class="description">// e.g. Fluent, Beginner</span></div><span class="type">}],</span></div><div class="property"><span class="name">interests</span>: <span class="type">[{</span> <span class="description"></span><div class="property"><span class="name">name</span>: <span class="type">string</span>, <span class="description">// e.g. Philosophy</span></div><div class="property"><span class="name">keywords</span>: <span class="type">[</span> <span class="description"></span><div class="property"><span class="type">string</span> <span class="description">// e.g. Friedrich Nietzsche</span></div><span class="type">]</span></div><span class="type">}],</span></div><div class="property"><span class="name">references</span>: <span class="type">[{</span> <span class="description">// List references you have received</span><div class="property"><span class="name">name</span>: <span class="type">string</span>, <span class="description">// e.g. Timothy Cook</span></div><div class="property"><span class="name">reference</span>: <span class="type">string</span> <span class="description">// e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing.</span></div><span class="type">}]</span></div><span class="type">}</span></div></div>
+<html>
+  <head>
+    
+  </head>
+  <body>
+
+    <meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+		<title>Richard Hendriks</title>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+		<style>
+			/********************************************
+* 	reset from
+* 	http://meyerweb.com/eric/tools/css/reset/
+*******************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/****************
+*	COMMONS
+****************/
+body, html {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 13px;
+    color: #40484f;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.46153846;
+    text-align: left;
+    webkit-text-size-adjust: 100%;
+}
+
+p {
+    display: block;
+    margin-bottom: 1.3em;
+}
+
+a {
+    color: #0095ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0c65a5;
+    text-decoration: underline;
+}
+
+ul {
+    margin-top: 1rem;
+}
+
+li {
+    list-style-type: square;
+    list-style-position: outside;
+    margin-left: 1.3em;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.67rem;
+}
+
+h3 {
+    font-size: 1.27rem;
+}
+
+em {
+    color: #757575;
+}
+
+blockquote {
+    margin-bottom: 1em;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* main container */
+#resume {
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* every section wrapper */
+.section {
+    margin-bottom: 1rem;
+}
+
+section .location {
+    margin-right: .5em;
+    color: #606d76;
+    font-weight: 700;
+}
+
+#contact {
+    margin-top: .5rem;
+}
+
+#profiles .item {
+    padding: 0;
+}
+
+#header &gt; #profiles,
+#header &gt; #contact,
+#skills,
+#languages,
+#interests {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+#header &gt; div {
+    line-height: 1.5;
+}
+
+#header &gt; div &gt; div {
+    margin-right: 1.2em;
+}
+
+#header h1.name {
+    font-size: 2.8rem;
+    font-weight: 100;
+    line-height: 100%;
+}
+
+#header h2.label {
+    color: #202931;
+    font-size: 1.47rem;
+    font-weight: 300;
+}
+
+#header .picture {
+    width: 11em;
+    float: right;
+    border-radius: 4px;
+}
+
+.main-summary {
+    background: #f1f8ff;
+    padding: 1.2em 1em;
+    margin-top: 1rem;
+}
+
+.main-summary p {
+    margin: .15em 0 0;
+}
+
+h2.section-title {
+    display: inline-block;
+    background: #fff;
+    padding: 0 1em 0.3em 0;
+    color: #ff6d1f;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    font-size: .9rem;
+}
+
+.section &gt; header {
+    position: relative;
+}
+
+.fa {
+    margin-right: 0.25em;
+}
+
+.section &gt; header::after {
+    position: absolute;
+    left: 0;
+    top: .7em;
+    height: 1px;
+    background: #ccc;
+    content: "";
+    width: 100%;
+    z-index: -100;
+    display: block;
+}
+
+.section.main-summary &gt; section {
+    margin: 0;
+}
+
+.section &gt; section &gt; header {
+    font-size: 1.38rem;
+    position: relative;
+    margin-top: .7em;
+}
+
+.section &gt; section &gt; header:first-of-type {
+    margin: 0;
+}
+
+.section &gt; section &gt; header .space-left {
+    position: absolute;
+    left: -1.56rem;
+    top: 5px;
+    color: #aaa;
+    line-height: 1;
+    opacity: 0;
+}
+
+.position,
+.company,
+.organization,
+.institution,
+.date,
+.area,
+.studyType,
+.title,
+.awarder {
+    display: inline-block;
+}
+
+.position,
+.studyType,
+.area,
+.title,
+.language,
+.name {
+    font-weight: 600;
+}
+
+.company::before,
+.institution::before,
+.organization::before,
+.awarder::before {
+    content: "at"
+}
+
+.company,
+.institution,
+.organization,
+.awarder {
+    color: #606d76;
+    font-weight: 400;
+}
+
+.section header .date {
+    font-size: 1rem;
+    display: block;
+    padding: .1em 0;
+    font-weight: 600;
+}
+
+ul.keywords,
+ul.courses {
+    margin-top: .5em;
+}
+
+ul.keywords li,
+ul.courses li {
+    display: inline-block;
+    margin: 2px 2px 2px 0;
+    padding: 4px 5px 5px;
+    font-size: .9rem;
+    line-height: 1;
+    text-transform: lowercase;
+    color: #3e6d8e;
+    background-color: #dfeaf1;
+    border: 0 solid #dfeaf1;
+    white-space: nowrap;
+}
+
+ul.keywords li:hover,
+ul.courses li:hover {
+    background: #dfeaf0;
+}
+
+.item {
+    padding: .5em 0;
+}
+
+.gpa {
+    padding-bottom: .5em;
+}
+
+.fa.social {
+    font-size: 1.1em;
+}
+
+/* Social Media Brand Colors */
+.google-plus {
+    color: #dd4b39;
+}
+
+.tumblr {
+    color: #32506d;
+}
+
+.foursquare {
+    color: #0072b1;
+}
+
+.facebook {
+    color: #3b5998;
+}
+
+.linkedin {
+    color: #007bb6;
+}
+
+.pinterest {
+    color: #cb2027;
+}
+
+.dribbble {
+    color: #ea4c89;
+}
+
+.instagram {
+    color: #517fa4;
+}
+
+.twitter {
+    color: #00aced;
+}
+
+.soundcloud {
+    color: #ff3a00;
+}
+
+.wordpress {
+    color: #21759b;
+}
+
+.youtube {
+    color: #bb0000;
+}
+
+.github {
+    color: #171515;
+}
+
+.stack-overflow {
+    color: #828386;
+    position: relative;
+}
+
+.flickr {
+    color: #ff0084;
+}
+
+.stack-overflow::after {
+    position: absolute;
+    left: 0;
+    content: '\f16c';
+    color: #f68a1f;
+    overflow: hidden;
+    height: 40%;
+}
+
+#languages .item,
+#skills .item,
+#interests .item {
+    width: 15em;
+    padding: 0 .5em .5em 0;
+    border-bottom: none;
+}
+
+#skills .item {
+    width: 16em;
+}
+
+#skills .item .keywords {
+    width: 15em;
+}
+
+/* Skill chart */
+.level {
+    margin-bottom: .5em;
+}
+
+.level .bar {
+    border: 1px solid #ddd;
+    display: block;
+    width: 10em;
+    height: 5px;
+    position: relative;
+}
+
+.level .bar::after {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    background: black;
+    height: 5px;
+}
+
+.level.beginner .bar::after {
+    background: #EB5F51;
+    width: 2.5em;
+}
+
+.level.intermediate .bar::after {
+    background: #ffdf1f;
+    width: 5em;
+}
+
+.level.advanced .bar::after,
+.level.fluent .bar::after {
+    background: #5CB85C;
+    width: 7.5em;
+}
+
+.level.master .bar::after,
+.level.native.speaker .bar::after {
+    background: #59C596;
+    width: 10em;
+}
+
+#references .item {
+    padding-left: .5em;
+    border-left: 5px solid #ff6d1f;
+}
+
+/******************
+*	HELPER CLASSES
+******************/
+
+.clear::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.display {
+    display: block;
+    opacity: 1 !important;
+}
+
+.margin1 {
+    margin-bottom: .5rem;
+}
+
+/****************
+*		TABLET
+****************/
+@media screen and (min-width: 602px) {
+    #resume {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/****************
+*		LAPTOP
+****************/
+@media screen and (min-width: 1025px) {
+    li {
+        margin-left: 1.5em;
+    }
+
+    #resume {
+        width: 820px;
+        margin: 2rem auto;
+        opacity: 0;
+        -webkit-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out;
+    }
+
+    .section &gt; section &gt; header .space-left {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .section &gt; section {
+        margin-left: 1.67rem;
+    }
+
+    .company::before,
+    .institution::before,
+    .organization::before,
+    .awarder::before {
+        content: "|";
+    }
+
+    .header-left {
+        float: left;
+        width: 70%;
+        word-break: break-all;
+    }
+
+    .section header .date {
+        float: right;
+        padding: .2em;
+    }
+
+    .display {
+        display: none;
+    }
+
+    .display:not(.none) {
+        display: block;
+    }
+
+}
+
+@media print {
+
+    #resume {
+        margin: 0;
+        padding: 0;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        line-height: 1.3;
+        /*font-family: Arial, Georgia, "Lucida Grande", sans-serif;*/
+    }
+
+    @page {
+        margin: 1cm 1.4cm;
+    }
+
+    .item-count {
+        display: none;
+    }
+
+    .company::before,
+    .institution::before,
+    .organization::before,
+    .awarder::before {
+        content: "at";
+    }
+
+    .main-summary {
+        padding: 2rem 0;
+    }
+
+    .section {
+        margin: .8rem 0;
+        padding: 0;
+    }
+
+    .section header {
+        padding-bottom: .15rem;
+    }
+
+    .section .location {
+        padding-bottom: .15rem;
+    }
+    .stack-overflow::after {
+        content: "";
+    }
+
+    .fa.social {
+        color: #828386;
+    }
+
+    ul {
+        margin-top: .4em;
+    }
+
+    ul, li {
+        padding: 0;
+    }
+
+    ul.keywords li,
+    ul.courses li {
+        margin: 0;
+        padding: 0;
+        font-size: .8rem;
+        text-transform: lowercase;
+    }
+
+    ul.keywords li::after,
+    ul.courses li::after {
+        padding: 0 0 0 .1rem;
+        content: " |";
+    }
+
+    ul.keywords::before,
+    ul.courses::before {
+        font-size: .8rem;
+        font-weight: 600;
+    }
+
+    ul.keywords::before {
+        content: "Skills acquired: ";
+    }
+
+    #skills .keywords::before {
+        content: '';
+    }
+
+    .section p {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.courses::before {
+        content: "Major courses: ";
+    }
+
+    ul.keywords li:last-of-type::after,
+    ul.courses li:last-of-type::after {
+        content: "";
+    }
+
+    .level em {
+        font-style: normal;
+        padding: .1em 0;
+    }
+
+    .level .bar {
+        display: none;
+    }
+
+    #profiles .item {
+        padding: 0;
+    }
+
+    .item.display {
+        display: block;
+        opacity: 1 !important;
+    }
+}
+
+		</style>
+	
+
+	
+		<div id="resume">
+				<header class="clear" id="header">
+						<div>
+							<h1 class="name">go-guru</h1>
+							<h2 class="label">Программист</h2>
+						</div>
+
+						<span class="location">
+								<span class="address">
+								  ул. Центр,
+								</span>
+								<span class="postalCode">
+									127000,
+								</span>
+								<span class="city">
+									Москва,
+								</span>
+								<span class="region">
+									Россия, Московская область
+								</span>
+								<span class="countryCode">
+									RU
+								</span>
+						</span>
+                    
+					<div id="contact">
+						<div class="website">
+              <span class="fa fa-external-link"></span>
+							<a href="https://go-guru.github.io">https://go-guru.github.io</a>
+						</div>
+						<!--div class="email">
+              <span class="fa fa-envelope-o"></span>
+							<a href="#"><span class="__cf_email__">[email&nbsp;protected]</span><script type="text/javascript" data-cfhash="f9e31">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a>
+						</div-->
+						<!--div class="phone">
+              <span class="fa fa-mobile"></span>
+							(912) 555-4321
+						</div-->
+					</div>
+
+					<div id="profiles">
+						<!--div class="item">
+								<div class="username">
+									<span class="fa fa-twitter twitter social"></span>
+										<span>go-guru</span>
+								</div>
+						</div-->
+						<div class="item">
+								<!--div class="username">
+									<span class="fa fa-soundcloud soundcloud social"></span>
+									<span class="url">
+										<a href="https://soundcloud.com/dandymusicnl">dandymusicnl</a>
+									</span>
+								</div-->
+						</div>
+					</div>
+				</header>
+
+					<section class="section main-summary">
+						<section>
+							<div><p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p></div>
+						</section>
+					</section>
+
+				<section class="section margin1">
+					<header>
+						<h2 class="section-title">Skills</h2>
+					</header>
+					<section id="skills">
+						<div class="item">
+							<h3 class="name">
+								Web Development
+							</h3>
+							<div class="level master">
+								<em>Master</em>
+								<div class="bar"></div>
+							</div>
+							<ul class="keywords">
+								<li>HTML</li>
+								<li>CSS</li>
+								<li>Javascript</li>
+							</ul>
+						</div>
+						<div class="item">
+							<h3 class="name">
+								Compression
+							</h3>
+							<div class="level master">
+								<em>Master</em>
+								<div class="bar"></div>
+							</div>
+							<ul class="keywords">
+								<li>Mpeg</li>
+								<li>MP4</li>
+								<li>GIF</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class="section-title">Work Experience <span class="item-count">(1)</span></h2>
+					</header>
+					<section id="work">
+								<header>
+									<span class="space-left">
+											<span class="fa fa-caret-down"></span>
+									</span>
+									<div class="position">
+										CEO/President
+									</div>
+									<div class="company">
+										Pied Piper
+									</div>
+									<div class="date">
+										<span class="startDate">
+											December 2013
+										</span>
+										<span class="endDate">
+											- December 2014
+										</span>
+									</div>
+								</header>
+
+                                <span class="website">
+                                    <a href="https://piedpiper.com">https://piedpiper.com</a>
+                                </span>
+
+
+								<div style="opacity:1" class="item display">
+									<div class="summary">
+										<p></p><p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores&trade; that are not merely competitive, but approach the theoretical limit of lossless compression.</p><p></p>
+									</div>
+									<ul class="highlights">
+											<li>Build an algorithm for artist to detect if their music was violating copy right infringement laws</li>
+											<li>Successfully won Techcrunch Disrupt</li>
+											<li>Optimized an algorithm that holds the current world record for Weisman Scores</li>
+									</ul>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class="section-title">Volunteer</h2>
+					</header>
+					<section id="volunteer">
+								<header class="clear">
+									<span class="space-left">
+											<span class="fa fa-caret-down"></span>
+									</span>
+									<div class="header-left">
+											<div class="position">
+												Teacher
+											</div>
+										<div class="organization">
+											CoderDojo
+										</div>
+									</div>
+									<div class="date">
+										<span class="startDate">
+											January 2012
+										</span>
+										<span class="endDate">
+											- January 2013
+										</span>
+									</div>
+								</header>
+
+
+
+								<div style="opacity:1" class="item display">
+									<div class="summary">
+										<p></p><p>Global movement of free coding clubs for young people.</p><p></p>
+									</div>
+									<div class="website">
+										<a href="https://coderdojo.com/">https://coderdojo.com/</a>
+									</div>
+									<ul class="highlights">
+											<li>Awarded 'Teacher of the Month'</li>
+									</ul>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class="section-title">Education <span class="item-count">(1)</span></h2>
+					</header>
+					<section id="education">
+							<header class="clear">
+								<span class="space-left">
+										<span class="fa fa-caret-down"></span>
+								</span>
+								<div class="header-left">
+										<div class="studyType">
+											Bachelor
+										</div>
+										<div class="area">
+											Information Technology
+										</div>
+										<div class="institution">
+											University of Oklahoma
+										</div>
+								</div>
+								<div class="date">
+									<span class="startDate">
+										2011
+									</span>
+									<span class="endDate">
+										- 2014
+									</span>
+								</div>
+							</header>
+
+
+                <ul class="courses">
+                    <li>DB1101 - Basic SQL</li>
+                    <li>CS2011 - Java Introduction</li>
+                </ul>
+
+								<div style="opacity:1" class="item display">
+									<div class="gpa">
+										<strong> Grade:</strong> <span>4.0</span>
+									</div>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class="section-title">Awards</h2>
+					</header>
+					<section id="awards">
+						<header class="clear">
+							<span class="space-left">
+									<span class="fa fa-caret-down"></span>
+							</span>
+							<div class="header-left">
+									<div class="title">
+										Digital Compression Pioneer Award
+									</div>
+									<div class="awarder">
+										Techcrunch
+									</div>
+							</div>
+								<div class="date">
+									2014
+								</div>
+						</header>
+							<div style="opacity:1" class="item display">
+								<div class="summary">
+									<p></p><p>There is no spoon.</p><p></p>
+								</div>
+						</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class="section-title">Publications</h2>
+					</header>
+					<section id="publications">
+							<header class="clear">
+								<span class="space-left">
+									<span class="fa fa-caret-down"></span>
+								</span>
+								<div class="header-left">
+										<span class="name">
+											<span class="website">
+												<a href="https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a>
+											</span>
+										</span>
+										<span class="publisher">
+											in Hooli
+										</span>
+								</div>
+									<span class="date">
+										1 October 2014
+									</span>
+							</header>
+								<div style="opacity:1" class="item display">
+								<div class="summary">
+									<p></p><p>Innovative middle-out compression algorithm that changes the way we store data.</p><p></p>
+								</div>
+							</div>
+					</section>
+				</section>
+
+				<section class="section margin1">
+					<header>
+						<h2 class="section-title">Languages</h2>
+					</header>
+					<section id="languages">
+							<div class="display">
+										<h3 class="language">
+											English
+										</h3>
+								<div class="item">
+										<div class="level fluency native read-write">
+											<em>Native read-write</em>
+											<div class="bar"></div>
+										</div>
+								</div>
+							</div>
+					</section>
+				</section>
+
+				<section class="section margin1">
+					<header>
+						<h2 class="section-title">Interests</h2>
+					</header>
+					<section id="interests">
+							<div class="item">
+									<h3 class="name">
+										Wildlife
+									</h3>
+									<ul class="keywords">
+											<li>Ferrets</li>
+											<li>Unicorns</li>
+									</ul>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class="section-title">References</h2>
+					</header>
+					<section id="references">
+						<div class="item">
+							<blockquote class="reference">
+								“ It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company. ”
+							</blockquote>
+							<div class="name">
+								Erlich Bachman
+							</div>
+						</div>
+					</section>
+				</section>
+		</div>
+		<script>
+			(function(){
+				var elements = document.querySelector("#resume");
+
+				// adding the element to the all container
+				// and using event delegation
+				elements.addEventListener("click", function(e) {
+					var current = e.target;
+					// font awesone arrows
+					var arrowRight = current.classList.contains('fa-caret-right');
+					var arrowDown = current.classList.contains('fa-caret-down');
+
+					if(current &amp;&amp; current.nodeName == "SPAN" &amp;&amp; (arrowRight || arrowDown)) {
+						var header = e.target.parentNode.parentNode;
+						var item = header.nextSibling;
+
+						// select the .item element from the siblings
+						while (!item || !item.classList || !item.classList.contains('item')) {
+							item = item.nextSibling;
+						}
+
+						// hide or show the .item element
+						item.classList.toggle('none');
+
+						// if the .item is going to be shown then imcrease is opacity
+						// every 20 milliseconds to make a fadeIn effect
+						if (!item.classList.contains('none')) {
+							var id = setInterval(function() {
+								item.style.opacity = parseFloat(item.style.opacity) + 0.09;
+								if (parseFloat(item.style.opacity) &gt;= 1) {
+									clearInterval(id);
+								}
+							}, 20);
+						} else {
+							item.style.opacity = 0;
+						}
+
+						current.classList.toggle('fa-caret-right');
+						current.classList.toggle('fa-caret-down');
+					}
+
+				}, false);
+
+				// Make the #resume visible only when the DOM is fully loaded
+				elements.style.opacity = '1';
+			})();
+		</script>
+	<script type="text/javascript">/* &lt;![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&amp;&amp;s&gt;-1&amp;&amp;m&gt;28){j=28+s;s='';if(j&lt;m){r='0x'+a.substr(j,2)|0;for(j+=2;j&lt;m&amp;&amp;a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/&lt;/g,'&amp;lt;').replace(&gt;&lt;/m&gt;/g,'&amp;gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]&gt; */</script>
+
+
+</body></html>
